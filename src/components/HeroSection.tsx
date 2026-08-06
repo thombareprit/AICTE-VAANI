@@ -4,6 +4,7 @@ import sipnaLogo from '../assets/sipna-logo.png';
 import naacLogo from '../assets/naac-logo.png';
 import nbaLogo from '../assets/nba-logo.svg';
 import aicteLogo from '../assets/aicte-logo.png';
+import sipnaBuilding from '../assets/sipna-building.svg';
 
 export const HeroSection: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,8 +81,21 @@ export const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative pt-4 md:pt-6 pb-16 bg-[#F8FAFC] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#F8FAFC] min-h-screen pt-4 pb-16 px-4">
+      {/* Layer 1 (Background Asset Layer) */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img 
+          src={sipnaBuilding} 
+          alt="Sipna Building Background" 
+          className="w-full h-full object-cover object-center opacity-[0.8] contrast-125 scale-105 transition-transform duration-1000"
+        />
+      </div>
+
+      {/* Layer 2 (Soft Gradient Color Tint Overlay) */}
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-[#F8FAFC]/90 via-[#F8FAFC]/80 to-[#F8FAFC] backdrop-blur-[2px]" />
+
+      {/* Layer 3 (Hero Content Wrapper) */}
+      <div className="relative z-10 max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
         
         {/* 1. Centered Institutional Crest Header */}
         <div className="w-full max-w-5xl mx-auto text-center pt-8 pb-6 flex flex-col items-center justify-center border-b border-slate-200/60 mb-8">
@@ -115,7 +129,7 @@ export const HeroSection: React.FC = () => {
             <img
               src={naacLogo}
               alt="NAAC Logo"
-              style={{ maxHeight: '48px', width: 'auto', objectFit: 'contain' }}
+              style={{ maxHeight: '58px', width: 'auto', objectFit: 'contain' }}
             />
             <span>
               (Affiliated to Sant Gadge Baba Amravati University) | Accredited by NAAC with grade A+ | Accredited by NBA | Accredited by IAO
@@ -132,10 +146,10 @@ export const HeroSection: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Column (7 Columns) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-12">
             
             {/* Interactive Sponsor Box with gold fill transition */}
-            <div className="flex items-center gap-4 mb-4 bg-slate-100 border border-slate-200 p-3 rounded-2xl w-fit cursor-default hover:bg-amber-500/10 hover:border-amber-500/40 hover:shadow-lg transition-all duration-300 group">
+            <div className="flex items-center shadow-premium gap-4 mb-4 bg-slate-100 shadow-xl border border-slate-200 p-3 rounded-2xl w-fit cursor-default hover:bg-amber-500/15 hover:border-amber-500/40 hover:shadow-lg transition-all duration-300 group">
               <img
                 src={aicteLogo}
                 alt="AICTE Logo"
@@ -154,7 +168,7 @@ export const HeroSection: React.FC = () => {
             {/* Headline */}
             <h1 className="text-3xl md:text-5xl font-extrabold text-[#0F172A] leading-tight mb-4 tracking-tight">
               Quantum Technologies{' '}
-              <span className="text-[#1D4ED8] bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600">
+              <span className="text-[#E36414] bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600">
                 for Viksit Bharat
               </span>
             </h1>
@@ -170,7 +184,7 @@ export const HeroSection: React.FC = () => {
                 href="https://atalacademy.aicte-india.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#1D4ED8] hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition-all hover:scale-[1.02] cursor-pointer inline-flex items-center"
+                className="bg-[#E36414] hover:bg-[#AE4C0F] text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition-all hover:scale-[1.02] cursor-pointer inline-flex items-center"
               >
                 Register for Free
               </a>
@@ -190,13 +204,13 @@ export const HeroSection: React.FC = () => {
               style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="relative bg-white border border-slate-200 rounded-2xl p-6 shadow-premium transition-shadow duration-350 hover:shadow-lg overflow-hidden cursor-default"
+              className="relative bg-white border border-slate-200 rounded-2xl p-6 shadow-premium shadow-xl transition-shadow duration-350 hover:shadow-lg overflow-hidden cursor-default"
             >
               {/* Radial Cursor Spotlight Layer */}
               <div
                 className="absolute inset-0 pointer-events-none transition-opacity duration-300"
                 style={{
-                  background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(29,78,216,0.06), transparent 40%)`,
+                  background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6, 6, 6, 0.09), transparent 40%)`,
                 }}
               />
 
@@ -206,7 +220,7 @@ export const HeroSection: React.FC = () => {
                     WORKSHOP SPECS
                   </span>
                   <h3 className="text-lg font-black text-[#0F172A] pb-2 border-b border-slate-100">
-                    Key Credentials
+                    Key Details
                   </h3>
                 </div>
 

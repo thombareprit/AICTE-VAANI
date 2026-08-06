@@ -96,7 +96,7 @@ export const Navbar: React.FC = () => {
                 href="https://atalacademy.aicte-india.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#1D4ED8] hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-full shadow-md transition-all cursor-pointer inline-flex items-center gap-1 text-xs uppercase tracking-wider"
+                className="bg-[#E36414] hover:bg-[#C25512]  text-white font-semibold px-5 py-2 rounded-full shadow-md transition-all cursor-pointer inline-flex items-center gap-1 text-xs uppercase tracking-wider"
               >
                 Register Now
                 <ArrowUpRight className="w-3.5 h-3.5" />

@@ -27,7 +27,7 @@ export const AboutSection: React.FC = () => {
             About the Program
           </span>
           <h2 className="text-center text-base md:text-lg font-black text-[#0F172A] tracking-tight uppercase max-w-4xl mx-auto mb-2 leading-relaxed">
-            SIPNA SHIKSHAN PRASARAK MANDAL'S — SIPNA COLLEGE OF ENGINEERING AND TECHNOLOGY, AMRAVATI
+            SIPNA COLLEGE OF ENGINEERING AND TECHNOLOGY, AMRAVATI
           </h2>
           <p className="max-w-3xl mx-auto text-slate-655 text-xs sm:text-sm font-semibold uppercase tracking-wider">
             AICTE-VAANI Sponsored Scheme Regional Language Initiative
@@ -75,20 +75,20 @@ export const AboutSection: React.FC = () => {
                   <BookOpen className="w-4.5 h-4.5 text-blue-600" />
                   Department of Computer Science & Engineering
                 </h3>
-                <p className="text-xs text-[#334155] leading-relaxed font-semibold">
+                <p className="text-sm text-[#334155] leading-relaxed font-semibold">
                   Established in 1999, the CSE Department offers B.Tech (Intake: 180), M.Tech (Intake: 24), and a Ph.D. Research Center approved by SGBAU. It is powered by 34 highly qualified faculty members and has been NBA accredited 3 times.
                 </p>
               </div>
 
               {/* 8 Workshop Objectives */}
               <div className="space-y-4 pt-2 border-t border-slate-200">
-                <h4 className="text-xs font-black uppercase tracking-widest text-slate-400">
-                  Workshop Objectives (8 Core Points)
+                <h4 className="text-xs text-black font-black uppercase tracking-widest text-slate-400">
+                  Workshop Objectives
                 </h4>
                 
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {workshopObjectives.map((obj, index) => (
-                    <li key={index} className="flex gap-2.5 text-xs text-[#334155] leading-relaxed font-semibold">
+                    <li key={index} className="flex gap-2.5 text-sm text-[#334155] leading-relaxed font-semibold">
                       <span className="w-5 h-5 rounded-full bg-amber-500/15 border border-amber-600/20 flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="w-3 h-3 text-amber-650" />
                       </span>

@@ -173,7 +173,7 @@ export const SpeakersSection: React.FC = () => {
           <div
             className="absolute inset-0 pointer-events-none z-5 transition-opacity duration-300"
             style={{
-              background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(29,78,216,0.18), transparent 60%)`,
+              background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(4, 4, 4, 0.09), transparent 60%)`,
             }}
           />
         )}
