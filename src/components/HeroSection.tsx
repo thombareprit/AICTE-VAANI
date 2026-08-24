@@ -76,7 +76,6 @@ export const HeroSection: React.FC = () => {
     { key: 'Conduct Mode', value: 'Offline Mode' },
     { key: 'Medium of Instruction', value: 'Hindi Medium (AICTE-VAANI Regional Language Initiative)' },
     { key: 'Venue', value: 'Sipna College of Engineering & Technology, Amravati' },
-    { key: 'Seat Limit', value: 'Max 50 Participants (First-Come, First-Served Basis)' },
     { key: 'Certification', value: 'Min 80% Attendance & 70% Test Score required for ATAL Certificate' },
   ];
 
@@ -125,6 +124,9 @@ export const HeroSection: React.FC = () => {
           <span className="text-sm font-extrabold text-red-600 tracking-wide mb-2">
             ESTD - 1999 | An Autonomous Institute
           </span>
+          <span className="text-base md:text-lg font-black text-[#1D4ED8] tracking-wide uppercase my-1 block">
+            Department of Computer Science & Engineering
+          </span>
           <div className="flex items-center justify-center gap-3 text-xs font-semibold text-slate-600 flex-wrap">
             <img
               src={naacLogo}
@@ -149,18 +151,21 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-12">
             
             {/* Interactive Sponsor Box with gold fill transition */}
-            <div className="flex items-center shadow-premium gap-4 mb-4 bg-slate-100 shadow-xl border border-slate-200 p-3 rounded-2xl w-fit cursor-default hover:bg-amber-500/15 hover:border-amber-500/40 hover:shadow-lg transition-all duration-300 group">
+            <div className="flex items-center gap-5 p-4 md:p-5 rounded-2xl bg-amber-500/15 border-2 border-amber-500/40 shadow-lg shadow-amber-500/10 mb-6 transition-all duration-300 hover:bg-amber-500/20 hover:border-amber-500/60 hover:scale-[1.02] cursor-default">
               <img
                 src={aicteLogo}
                 alt="AICTE Logo"
-                className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-16 md:h-20 w-auto object-contain shrink-0 filter drop-shadow-md"
               />
               <div>
-                <span className="text-base md:text-lg font-black tracking-wider text-[#B45309] uppercase block transition-colors duration-300 group-hover:text-amber-700">
+                <span className="text-base md:text-xl font-black tracking-wider text-[#92400E] uppercase block">
                   AICTE-VAANI SPONSORED SCHEME
                 </span>
-                <span className="text-sm font-bold text-slate-700 block">
-                  3-Day National Technical Workshop
+                <span className="text-xs md:text-sm font-extrabold text-slate-800 tracking-wide block uppercase mt-0.5">
+                  3-Day National Technical Workshop (Hindi Medium)
+                </span>
+                <span className="text-xs md:text-sm font-normal text-200 tracking-wide block uppercase mt-0.5">
+                  ID: 2565537652
                 </span>
               </div>
             </div>
@@ -168,7 +173,7 @@ export const HeroSection: React.FC = () => {
             {/* Headline */}
             <h1 className="text-3xl md:text-5xl font-extrabold text-[#0F172A] leading-tight mb-4 tracking-tight">
               Quantum Technologies{' '}
-              <span className="text-[#E36414] bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600">
+              <span className="text-[#E36414] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-900">
                 for Viksit Bharat
               </span>
             </h1>
@@ -199,7 +204,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Right Column: Subtle 3D Tilt + Spotlight Credentials Card (5 Columns) */}
-          <div className="lg:col-span-5 w-full [perspective:1000px]">
+          <div className="lg:col-span-5 w-full h-full [perspective:1000px]">
             <motion.div
               style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
               onMouseMove={handleCardMouseMove}
@@ -224,7 +229,7 @@ export const HeroSection: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-7">
                   {credentials.map((cred, idx) => (
                     <div key={idx} className="grid grid-cols-12 gap-3 pb-3 border-b border-slate-50 last:border-b-0 last:pb-0">
                       <div className="col-span-5 text-xs font-bold text-slate-400 uppercase tracking-wider">

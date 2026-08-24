@@ -24,27 +24,16 @@ export const Navbar: React.FC = () => {
     { label: 'About', href: '#about' },
     { label: 'Speakers', href: '#speakers' },
     { label: 'Schedule', href: '#schedule' },
-    { label: 'Committee', href: '#committee' },
     { label: 'Venue', href: '#venue' },
+    { label: 'Committee', href: '#committee' },
     { label: 'Registration', href: '#registration' },
   ];
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsOpen(false);
-    const element = document.querySelector(targetId);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
+    const targetId = id.startsWith('#') ? id.slice(1) : id;
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -82,7 +71,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => handleScrollTo(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-[13px] font-bold text-slate-600 hover:text-[#1D4ED8] transition-colors duration-150 uppercase tracking-wider"
                 >
                   {item.label}
@@ -157,7 +146,7 @@ export const Navbar: React.FC = () => {
                     <a
                       key={item.label}
                       href={item.href}
-                      onClick={(e) => handleScrollTo(e, item.href)}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className="text-[14px] font-black text-slate-700 hover:text-[#1D4ED8] py-1.5 transition-colors border-b border-slate-50 uppercase tracking-wide"
                     >
                       {item.label}

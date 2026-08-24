@@ -50,7 +50,6 @@ with the strategic vision of national progress under Viksit Bharat 2047.
 4. REGISTRATION DETAILS
 --------------------------------------------------------------------------------
 * Fee: NO REGISTRATION FEE (Fully Sponsored by AICTE VAANI)
-* Intake: Strict cap of 50 Seats (First-Come, First-Served Basis)
 * Workshop ID: 2565537652
 * Registration Portal: https://atalacademy.aicte-india.org/
 * Registration Open: August 01, 2026
@@ -90,7 +89,7 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
   };
 
   return (
-    <section id="registration" className="py-20 bg-canvas border-b border-slate-200/60">
+    <section id="registration" className="scroll-mt-24 py-20 bg-canvas border-b border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
@@ -117,7 +116,7 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
               </div>
               <div className="space-y-1">
                 <span className="block text-[11px] font-black text-slate-400 tracking-widest uppercase">
-                  Fees & Intake
+                  Registration Fees
                 </span>
                 <h3 className="text-lg font-black text-[#D97706] uppercase tracking-tight">
                   NO REGISTRATION FEE
@@ -126,11 +125,6 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
                   The workshop is fully funded under the AICTE-VAANI Sponsored Scheme.
                 </p>
               </div>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-100">
-              <span className="text-xs font-bold text-slate-700 bg-slate-55 px-2.5 py-1 rounded border border-slate-100 block text-center">
-                Max Intake: <strong className="text-slate-905">50 Participants</strong> (FCFS)
-              </span>
             </div>
           </div>
 

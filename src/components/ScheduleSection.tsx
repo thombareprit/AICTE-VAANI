@@ -16,16 +16,24 @@ interface TimelineItem {
 
 interface DayTimelineProps {
   items: TimelineItem[];
-  scaleY: any;
 }
 
 const DayTimeline: React.FC<DayTimelineProps> = ({
   items,
-  scaleY,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const firstNodeRef = useRef<HTMLDivElement>(null);
   const lastNodeRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start center', 'end center'],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+  });
   
   const [spineBounds, setSpineBounds] = useState({ top: 28, bottom: 28 });
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -310,17 +318,6 @@ export const ScheduleSection: React.FC = () => {
   const [activeDay, setActiveDay] = useState<1 | 2 | 3>(1);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Setup scroll progress relative to the timeline container bounds
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start center', 'end center'],
-  });
-  
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 24,
-  });
-
   const days = [
     { id: 1, label: 'Day 1', date: '29 Oct 2026' },
     { id: 2, label: 'Day 2', date: '30 Oct 2026' },
@@ -330,35 +327,38 @@ export const ScheduleSection: React.FC = () => {
   const scheduleData: Record<1 | 2 | 3, TimelineItem[]> = {
     1: [
       {
-        time: '09:30 AM - 10:30 AM',
+        time: '09:30 AM – 11:00 AM',
         title: 'Registration & Inauguration Ceremony',
         type: 'event',
         domain: 'general',
         color: '#1D4ED8',
         tagText: 'Inaugural',
-        details: 'Welcome address by Patrons and chief guests. Highlighting Vaani scheme regional roadmap.',
+        details: 'Welcome address by SSPM leadership, Patrons, and Convenor. Highlighting the VAANI scheme regional roadmap.',
       },
       {
-        time: '10:30 AM - 11:00 AM',
-        title: 'Inaugural High Tea & Refreshments',
-        type: 'break',
-        domain: 'break',
-        color: '#D97706',
-        tagText: 'High Tea Break',
-      },
-      {
-        time: '11:00 AM - 01:00 PM',
-        title: 'Keynote Address: Quantum Computing & Viksit Bharat',
+        time: '11:00 AM – 12:00 PM',
+        title: 'Session I: Introduction to Quantum Technologies and Viksit Bharat',
         speaker: 'Dr. Kumar Gautam',
         role: 'Adjunct Faculty, NIT Delhi & RMoC AIM-NITI Aayog',
         type: 'session',
         domain: 'quantum',
         color: '#1D4ED8',
-        tagText: 'Quantum Computing',
-        details: 'Understanding qubit dynamics, superposition, and their application to national infrastructure development.',
+        tagText: 'Session I',
+        details: 'Overview of quantum mechanics, quantum initiatives, and role of regional language instruction for Viksit Bharat 2047.',
       },
       {
-        time: '01:00 PM - 02:00 PM',
+        time: '12:00 PM – 01:00 PM',
+        title: 'Session II: Fundamentals of Quantum Computing',
+        speaker: 'Dr. Kumar Gautam',
+        role: 'Adjunct Faculty, NIT Delhi & RMoC AIM-NITI Aayog',
+        type: 'session',
+        domain: 'quantum',
+        color: '#1D4ED8',
+        tagText: 'Session II',
+        details: 'Understanding superposition, entanglement, qubits, Bloch sphere representation, and quantum logic gates.',
+      },
+      {
+        time: '01:00 PM – 02:00 PM',
         title: 'Networking Lunch Break',
         type: 'break',
         domain: 'break',
@@ -366,58 +366,61 @@ export const ScheduleSection: React.FC = () => {
         tagText: 'Lunch Break',
       },
       {
-        time: '02:00 PM - 04:00 PM',
-        title: 'Session 2: Quantum Algorithms & Communication',
+        time: '02:00 PM – 03:00 PM',
+        title: 'Session III: Quantum Communication',
         speaker: 'Dr. Neha Gupta',
-        role: 'Deputy Director, Symbiosis University, Indore',
+        role: 'Dy Director, School of Computer Science & IT, Indore',
         type: 'session',
         domain: 'aiml',
         color: '#6366F1',
-        tagText: 'Quantum Algorithms',
-        details: 'Overview of Shor\'s algorithm, Grover\'s algorithm, and standard quantum cryptography channels.',
+        tagText: 'Session III',
+        details: 'Introduction to secure channels, quantum teleportation, and quantum noise fundamentals.',
       },
       {
-        time: '04:00 PM - 04:30 PM',
-        title: 'Evening Refreshment Tea',
+        time: '03:00 PM – 03:15 PM',
+        title: 'Evening High Tea & Refreshments',
         type: 'break',
         domain: 'break',
         color: '#D97706',
-        tagText: 'Evening Tea',
+        tagText: 'High Tea Break',
+      },
+      {
+        time: '03:15 PM – 04:15 PM',
+        title: 'Session IV: Quantum Algorithms and Applications',
+        speaker: 'Dr. Neha Gupta',
+        role: 'Dy Director, School of Computer Science & IT, Indore',
+        type: 'session',
+        domain: 'aiml',
+        color: '#6366F1',
+        tagText: 'Session IV',
+        details: 'Detailed analysis of quantum search algorithms, factoring algorithms, and emerging applications in optimization.',
       },
     ],
     2: [
       {
-        time: '10:00 AM - 11:30 AM',
-        title: 'Session 3: AI, Quantum AI & Machine Learning',
-        speaker: 'Dr. Satish Salunke',
-        role: 'Professor, VCET Vas Road, Palghar',
+        time: '11:00 AM – 12:00 PM',
+        title: 'Session V: Artificial Intelligence and Quantum AI',
+        speaker: 'Dr. Satish Salunkhe',
+        role: 'Professor, VCET, Palghar, Maharashtra',
         type: 'session',
         domain: 'aiml',
         color: '#6366F1',
-        tagText: 'AI & Machine Learning',
-        details: 'Leveraging quantum kernels, neural network acceleration, and processing optimization.',
+        tagText: 'Session V',
+        details: 'Exploring integration of AI with quantum models, neural network scaling, and computing acceleration.',
       },
       {
-        time: '11:30 AM - 12:00 PM',
-        title: 'Morning High Tea',
-        type: 'break',
-        domain: 'break',
-        color: '#D97706',
-        tagText: 'High Tea Break',
-      },
-      {
-        time: '12:00 PM - 01:00 PM',
-        title: 'Session 4: Healthcare Systems & Research Directions',
-        speaker: 'Prof. Vishal Chandel',
-        role: 'Senior IT Trainer, Sunstone Education Tech, Pune',
+        time: '12:00 PM – 01:00 PM',
+        title: 'Session VI: Quantum Machine Learning',
+        speaker: 'Dr. Satish Salunkhe',
+        role: 'Professor, VCET, Palghar, Maharashtra',
         type: 'session',
-        domain: 'quantum',
-        color: '#1D4ED8',
-        tagText: 'Quantum Computing',
-        details: 'Integrating quantum computing models for molecular simulations, vaccine discovery, and clinical trials.',
+        domain: 'aiml',
+        color: '#6366F1',
+        tagText: 'Session VI',
+        details: 'Understanding quantum kernels, quantum support vector machines, and optimized training methodologies.',
       },
       {
-        time: '01:00 PM - 02:00 PM',
+        time: '01:00 PM – 02:00 PM',
         title: 'Networking Lunch Break',
         type: 'break',
         domain: 'break',
@@ -425,70 +428,67 @@ export const ScheduleSection: React.FC = () => {
         tagText: 'Lunch Break',
       },
       {
-        time: '02:00 PM - 04:00 PM',
-        title: 'Interactive Workshop Panel: Curriculum Development',
-        type: 'event',
-        domain: 'general',
+        time: '02:00 PM – 03:00 PM',
+        title: 'Session VII: Quantum Technologies in Healthcare and Smart Systems',
+        speaker: 'Prof. Vishal Chandel',
+        role: 'Senior IT Trainer, Pune',
+        type: 'session',
+        domain: 'quantum',
         color: '#1D4ED8',
-        tagText: 'Panel Discussion',
-        details: 'Translating advanced tech curriculum into regional Indian languages as mandated under VAANI.',
+        tagText: 'Session VII',
+        details: 'Applications in clinical data analysis, drug discovery simulation, smart grid optimizations, and hospital routing systems.',
       },
       {
-        time: '04:00 PM - 04:30 PM',
-        title: 'Evening High Tea',
+        time: '03:00 PM – 03:15 PM',
+        title: 'Evening High Tea & Refreshments',
         type: 'break',
         domain: 'break',
         color: '#D97706',
-        tagText: 'Evening Tea',
+        tagText: 'High Tea Break',
+      },
+      {
+        time: '03:15 PM – 04:15 PM',
+        title: 'Session VIII: Research Opportunities in Quantum Technologies',
+        speaker: 'Prof. Vishal Chandel',
+        role: 'Senior IT Trainer, Pune',
+        type: 'session',
+        domain: 'quantum',
+        color: '#1D4ED8',
+        tagText: 'Session VIII',
+        details: 'Open research directions, funding opportunities, curriculum mapping, and translation under regional languages framework.',
       },
     ],
     3: [
       {
-        time: '10:00 AM - 11:30 AM',
-        title: 'Session 5: Quantum Safe Cryptography & QKD',
-        speaker: 'Dr. Harish Sahu',
-        role: 'Defence Scientist, SAG DRDO, Delhi',
+        time: '11:00 AM – 12:00 PM',
+        title: 'Session IX: Quantum Safe Cryptography',
+        speaker: 'Dr. Tapan Kumar Jain',
+        role: 'Associate Professor & HOD (ECE), IIIT Nagpur',
         type: 'session',
         domain: 'crypto',
         color: '#059669',
-        tagText: 'Cryptography & Security',
-        details: 'Exploring post-quantum cryptography standards and DRDO frameworks for national digital sovereignty.',
+        tagText: 'Session IX',
+        details: 'Understanding post-quantum security thresholds, lattice-based cryptography, and threat mitigation paradigms.',
       },
       {
-        time: '11:30 AM - 12:00 PM',
-        title: 'Morning High Tea',
-        type: 'break',
-        domain: 'break',
-        color: '#D97706',
-        tagText: 'High Tea Break',
-      },
-      {
-        time: '12:00 PM - 01:00 PM',
-        title: 'Session 6: Quantum Blockchain & Future Era',
-        speaker: 'Dr. Seema B. Rathod & Prof. H. S. Gulhane',
-        role: 'Workshop Coordinators, Dept. of CSE, SCOET',
+        time: '12:00 PM – 01:00 PM',
+        title: 'Session X: Quantum Key Distribution and Protocols',
+        speaker: 'Dr. Tapan Kumar Jain',
+        role: 'Associate Professor & HOD (ECE), IIIT Nagpur',
         type: 'session',
-        domain: 'blockchain',
-        color: '#D97706',
-        tagText: 'Blockchain',
-        details: 'Impact of quantum factorization on cryptographic ledger chains and future-proofing distributed storage.',
+        domain: 'crypto',
+        color: '#059669',
+        tagText: 'Session X',
+        details: 'Protocols such as BB84, decoy state distribution, entanglement-based systems, and physical layer security setup.',
       },
       {
-        time: '01:00 PM - 02:00 PM',
-        title: 'Networking Lunch Break',
-        type: 'break',
-        domain: 'break',
-        color: '#D97706',
-        tagText: 'Lunch Break',
-      },
-      {
-        time: '02:00 PM - 04:00 PM',
-        title: 'Valedictory Function & ATAL Certificate Ceremony',
+        time: '01:00 PM',
+        title: 'Valedictory Session, Certificate Distribution & Concluding Lunch',
         type: 'event',
         domain: 'general',
         color: '#D97706',
         tagText: 'Valedictory',
-        details: 'Honoring participants. Feedback session and distribution of digital/physical certificates.',
+        details: 'Feedback assembly, certificates distribution, and vote of thanks concluding the 3-day technical schedule.',
       },
     ],
   };
@@ -497,7 +497,7 @@ export const ScheduleSection: React.FC = () => {
 
   return (
     // Outer section wrapper with generous vertical padding to avoid clipping top and bottom-most cards
-    <section id="schedule" className="py-24 md:py-32 px-4 bg-[#F8FAFC] border-b border-slate-200/60 overflow-hidden">
+    <section id="schedule" className="scroll-mt-24 py-24 md:py-32 px-4 bg-[#F8FAFC] border-b border-slate-200/60 overflow-hidden">
       <div ref={containerRef} className="max-w-7xl mx-auto flex flex-col items-stretch">
         
         {/* Section Header */}
@@ -551,19 +551,16 @@ export const ScheduleSection: React.FC = () => {
             {/* Day 1 */}
             <DayTimeline
               items={scheduleData[1]}
-              scaleY={scaleY}
             />
 
             {/* Day 2 */}
             <DayTimeline
               items={scheduleData[2]}
-              scaleY={scaleY}
             />
 
             {/* Day 3 */}
             <DayTimeline
               items={scheduleData[3]}
-              scaleY={scaleY}
             />
           </motion.div>
         </div>

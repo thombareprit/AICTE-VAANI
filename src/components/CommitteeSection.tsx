@@ -63,11 +63,11 @@ export const CommitteeSection: React.FC = () => {
 
   const ringVariants = {
     rest: { borderColor: '#CBD5E1', scale: 1 },
-    hover: { borderColor: '#1D4ED8', scale: 1.05 },
+    hover: { borderColor: '#2563EB', scale: 1.05 },
   };
 
   return (
-    <section id="committee" className="py-20 bg-canvas border-b border-slate-200/60">
+    <section id="committee" className="scroll-mt-24 py-20 bg-canvas border-b border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
