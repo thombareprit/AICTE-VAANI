@@ -4,88 +4,21 @@ import { Landmark, CalendarRange, GraduationCap, CheckSquare, Download, ArrowUpR
 export const RegistrationSection: React.FC = () => {
   const [downloading, setDownloading] = useState(false);
 
+  // Directly downloads the official brochure PDF from the public folder
   const downloadBrochure = () => {
     setDownloading(true);
-    
-    // Markdown brochure content
-    const brochureText = `================================================================================
-AICTE-VAANI SPONSORED 3-DAY NATIONAL TECHNICAL WORKSHOP
-Topic: "Quantum Technologies for Viksit Bharat"
-Organized by: Department of Computer Science & Engineering
-Venue: Sipna College of Engineering & Technology (SCOET), Amravati
-Dates: October 29 - 31, 2026
-================================================================================
 
---------------------------------------------------------------------------------
-1. INSTITUTION OVERVIEW
---------------------------------------------------------------------------------
-Sipna College of Engineering & Technology (SCOET), Amravati (Autonomous)
-* NAAC 'A+' Grade Accredited
-* NBA Accredited Programs
-* ISO 9001:2015 Certified
-* Mentee Institute of COEP Technological University under Margadarshan Scheme
-
---------------------------------------------------------------------------------
-2. WORKSHOP OVERVIEW & MOTTO
---------------------------------------------------------------------------------
-Under the AICTE-VAANI sponsored scheme, this workshop is designed to deliver
-technical education in regional Indian languages (Hindi medium of instruction).
-It aims to foster deep national integration by connecting the fields of:
-* Quantum Computing
-* AI / ML & Quantum AI
-* Cryptography & QKD (Quantum Key Distribution)
-* Blockchain Technologies
-with the strategic vision of national progress under Viksit Bharat 2047.
-
---------------------------------------------------------------------------------
-3. DISTINGUISHED SPEAKERS & EXPERTS
---------------------------------------------------------------------------------
-* Dr. Kumar Gautam (NIT Delhi & RMoC AIM-NITI Aayog)
-* Dr. Neha Gupta (Deputy Director, Symbiosis University, Indore)
-* Dr. Satish Salunke (Professor, VCET, Vasai Road, Palghar)
-* Prof. Vishal Chandel (Senior IT Trainer, Sunstone Education Tech, Pune)
-* Dr. Harish Sahu (Defence Scientist, SAG DRDO, Delhi)
-
---------------------------------------------------------------------------------
-4. REGISTRATION DETAILS
---------------------------------------------------------------------------------
-* Fee: NO REGISTRATION FEE (Fully Sponsored by AICTE VAANI)
-* Workshop ID: 2565537652
-* Registration Portal: https://atalacademy.aicte-india.org/
-* Registration Open: August 01, 2026
-* Registration Close: October 27, 2026
-* Workshop Dates: October 29 - 31, 2026
-
---------------------------------------------------------------------------------
-5. CERTIFICATION ELIGIBILITY (ATAL STANDARDS)
---------------------------------------------------------------------------------
-1. Minimum 80% Attendance across all sessions.
-2. Minimum 70% Score in the comprehensive valedictory test.
-
---------------------------------------------------------------------------------
-6. CONTACT COORDINATORS
---------------------------------------------------------------------------------
-* Coordinator: Dr. Seema B. Rathod (+91 9423622703 | sbrathod@sipnaengg.ac.in)
-* Co-Coordinator: Dr. Harsha S. Gulhane (+91 9561584815 | hrvyawahare@sipnaengg.ac.in)
-
-================================================================================
-Generated on: ${new Date().toLocaleDateString()}
-Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
-================================================================================`;
-
-    const blob = new Blob([brochureText], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
+    const pdfUrl = './AICTE-Workshop-Brochure.pdf';
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'SCOET_Quantum_Technologies_Workshop_Brochure.md';
+    link.href = pdfUrl;
+    link.download = 'AICTE_VAANI_Quantum_Technologies_Workshop_Brochure.pdf';
     document.body.appendChild(link);
-    
+    link.click();
+    document.body.removeChild(link);
+
     setTimeout(() => {
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
       setDownloading(false);
-    }, 850);
+    }, 600);
   };
 
   return (
@@ -101,14 +34,14 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
             Registration & Criteria
           </h2>
           <p className="max-w-3xl mx-auto text-slate-600 text-sm sm:text-base font-semibold">
-            Participate in this fully-funded academic initiative. Review the seats, deadlines, and ATAL certificate standards below.
+            Participate in this fully-funded academic initiative. Review the deadlines and ATAL certificate standards below.
           </p>
         </div>
 
-        {/* 6. Classic Executive 4-Card Grid Restored */}
+        {/* Executive 4-Card Grid (Intake Caption Removed) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           
-          {/* Card 1: Fees & Intake */}
+          {/* Card 1: Fees */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-premium flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D97706] flex items-center justify-center border border-amber-100">
@@ -128,7 +61,7 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
             </div>
           </div>
 
-          {/* Card 2: Mode & Rules */}
+          {/* Card 2: Mode & Criteria */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-premium flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center border border-blue-100">
@@ -192,7 +125,7 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
             </div>
           </div>
 
-          {/* Card 4: Action Links */}
+          {/* Card 4: Action Links & Direct PDF Download */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-premium flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300">
             <div className="space-y-4">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
@@ -225,8 +158,8 @@ Sipna College of Engineering & Technology, Badnera Road, Amravati, MS, India.
                 disabled={downloading}
                 className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 border border-slate-200 hover:border-slate-350 hover:bg-slate-50/50 text-slate-700 font-bold text-xs rounded-xl transition-all duration-200 disabled:opacity-50 cursor-pointer"
               >
-                <Download className={`w-4 h-4 ${downloading ? 'animate-bounce' : ''}`} />
-                {downloading ? 'Preparing...' : 'Download Brochure'}
+                <Download className={`w-4 h-4 ${downloading ? 'animate-bounce text-primary' : ''}`} />
+                {downloading ? 'Downloading PDF...' : 'Download Brochure'}
               </button>
             </div>
           </div>

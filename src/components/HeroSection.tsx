@@ -159,7 +159,7 @@ export const HeroSection: React.FC = () => {
               />
               <div>
                 <span className="text-base md:text-xl font-black tracking-wider text-[#92400E] uppercase block">
-                  AICTE-VAANI SPONSORED SCHEME
+                  AICTE-VAANI SPONSORED
                 </span>
                 <span className="text-xs md:text-sm font-extrabold text-slate-800 tracking-wide block uppercase mt-0.5">
                   3-Day National Technical Workshop (Hindi Medium)
