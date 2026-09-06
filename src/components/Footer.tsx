@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
                   Sipna SCOET
                 </span>
                 <span className="text-[10px] font-black text-slate-400 tracking-wider">
-                  DEPT. OF COMPUTER SCIENCE & ENGG.
+                  DEPT. OF COMPUTER SCIENCE AND ENGINEERING
                 </span>
               </div>
             </div>

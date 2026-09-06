@@ -496,8 +496,8 @@ export const ScheduleSection: React.FC = () => {
   const xOffset = activeDay === 1 ? '0%' : activeDay === 2 ? '-33.333%' : '-66.666%';
 
   return (
-    // Outer section wrapper with generous vertical padding to avoid clipping top and bottom-most cards
-    <section id="schedule" className="scroll-mt-24 py-24 md:py-32 px-4 bg-[#F8FAFC] border-b border-slate-200/60 overflow-hidden">
+    // Outer section wrapper with modern tighter vertical padding
+    <section id="schedule" className="scroll-mt-24 py-12 md:py-16 px-4 bg-[#F8FAFC] border-b border-slate-200/60 overflow-hidden">
       <div ref={containerRef} className="max-w-7xl mx-auto flex flex-col items-stretch">
         
         {/* Section Header */}
@@ -542,7 +542,7 @@ export const ScheduleSection: React.FC = () => {
         </div>
 
         {/* Slider Track Wrapper with vertical padding and overflow-x-hidden, allowing internal overflow-visible */}
-        <div className="w-full overflow-x-hidden py-20 md:py-28">
+        <div className="w-full overflow-x-hidden py-8 md:py-12">
           <motion.div
             animate={{ x: xOffset }}
             transition={{ type: 'spring', stiffness: 260, damping: 28 }}

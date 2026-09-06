@@ -74,7 +74,7 @@ export const SpeakersSection: React.FC = () => {
       <div
         onMouseMove={(e) => handleMouseMove(e, index)}
         onMouseLeave={handleMouseLeave}
-        className="bg-white/80 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group min-h-[380px] w-full relative overflow-hidden cursor-default"
+        className="bg-white/80 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group min-h-[340px] w-full relative overflow-hidden cursor-default"
       >
         {/* Spotlight Overlay */}
         {activeSpotlightIdx === index && (
@@ -123,7 +123,7 @@ export const SpeakersSection: React.FC = () => {
   return (
     <section 
       id="speakers" 
-      className="scroll-mt-24 py-16 bg-slate-50/50 border-b border-slate-200/60 overflow-hidden mb-0 pb-4"
+      className="scroll-mt-24 py-12 md:py-16 bg-slate-50/50 border-b border-slate-200/60 overflow-hidden"
     >
       {/* Container */}
       <div className="max-w-7xl mx-auto px-4">
@@ -146,7 +146,7 @@ export const SpeakersSection: React.FC = () => {
         {/* Balanced 3 + 2 Grid Layout using FlexWrap for equal geometry sizing */}
         <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto px-4">
           {speakers.map((speaker, idx) => (
-            <div key={speaker.name} className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] max-w-[340px] flex">
+            <div key={speaker.name} className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] max-w-[290px] flex">
               {renderCard(speaker, idx)}
             </div>
           ))}

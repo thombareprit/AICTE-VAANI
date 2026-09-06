@@ -107,7 +107,7 @@ export const HeroSection: React.FC = () => {
                 src={sipnaLogo}
                 alt="Sipna Logo"
                 style={{
-                  transformOrigin: 'center left', // Fixed transform origin center left strictly
+                  transformOrigin: 'center left', 
                 }}
                 className="h-16 w-auto object-contain"
                 transition={{ layout: { type: "spring", stiffness: 350, damping: 35, bounce: 0 } }}
@@ -119,13 +119,13 @@ export const HeroSection: React.FC = () => {
             SIPNA SHIKSHAN PRASARAK MANDAL'S
           </span>
           <h1 className="text-2xl md:text-3xl font-black text-[#0F172A] tracking-tight uppercase mb-1">
-            SIPNA COLLEGE OF ENGINEERING AND TECHNOLOGY, AMRAVATI
+            SIPNA COLLEGE OF ENGINEERING & TECHNOLOGY, AMRAVATI
           </h1>
           <span className="text-sm font-extrabold text-red-600 tracking-wide mb-2">
             ESTD - 1999 | An Autonomous Institute
           </span>
           <span className="text-base md:text-lg font-black text-[#1D4ED8] tracking-wide uppercase my-1 block">
-            Department of Computer Science & Engineering
+            Department of Computer Science and Engineering
           </span>
           <div className="flex items-center justify-center gap-3 text-xs font-semibold text-slate-600 flex-wrap">
             <img
@@ -148,7 +148,7 @@ export const HeroSection: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Column (7 Columns) */}
-          <div className="lg:col-span-7 space-y-12">
+          <div className="lg:col-span-7 space-y-8">
             
             {/* Interactive Sponsor Box with gold fill transition */}
             <div className="flex items-center gap-5 p-4 md:p-5 rounded-2xl bg-amber-500/15 border-2 border-amber-500/40 shadow-lg shadow-amber-500/10 mb-6 transition-all duration-300 hover:bg-amber-500/20 hover:border-amber-500/60 hover:scale-[1.02] cursor-default">
@@ -221,10 +221,10 @@ export const HeroSection: React.FC = () => {
 
               <div style={{ transform: 'translateZ(10px)' }} className="relative z-10 space-y-4">
                 <div>
-                  <span className="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1 block">
-                    WORKSHOP SPECS
-                  </span>
-                  <h3 className="text-lg font-black text-[#0F172A] pb-2 border-b border-slate-100">
+                  {/* <span className="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1 block">
+                    WORKSHOP SPECIFICATIONS
+                  </span> */}
+                  <h3 className="text-lg font-medium text-slate-600 pb-2 border-b border-slate-100">
                     Key Details
                   </h3>
                 </div>

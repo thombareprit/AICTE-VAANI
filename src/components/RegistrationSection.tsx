@@ -22,8 +22,8 @@ export const RegistrationSection: React.FC = () => {
   };
 
   return (
-    <section id="registration" className="scroll-mt-24 py-20 bg-canvas border-b border-slate-200/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="registration" className="scroll-mt-24 py-12 md:py-16 px-4 bg-canvas border-b border-slate-200/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Section Header */}
         <div className="text-center space-y-3">
@@ -51,13 +51,18 @@ export const RegistrationSection: React.FC = () => {
                 <span className="block text-[11px] font-black text-slate-400 tracking-widest uppercase">
                   Registration Fees
                 </span>
-                <h3 className="text-lg font-black text-[#D97706] uppercase tracking-tight">
+                <h3 className="text-lg font-black text-[#D97706] font-semibold uppercase tracking-tight">
                   NO REGISTRATION FEE
                 </h3>
-                <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                {/* <p className="text-xs text-slate-600 font-normal leading-relaxed">
                   The workshop is fully funded under the AICTE-VAANI Sponsored Scheme.
-                </p>
+                </p> */}
               </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <p className="text-[11px] text-slate-500 font-normal leading-relaxed">
+                Note: No TA/DA or accommodation will be provided to the participants.
+              </p>
             </div>
           </div>
 
@@ -71,20 +76,20 @@ export const RegistrationSection: React.FC = () => {
                 <span className="block text-[11px] font-black text-slate-400 tracking-widest uppercase">
                   ATAL Standards
                 </span>
-                <h3 className="text-lg font-black text-slate-900 tracking-tight">
+                <h3 className="text-lg font-black font-semibold text-slate-900 tracking-tight">
                   Offline Mode
                 </h3>
-                <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                <p className="text-xs text-slate-600 font-normal leading-relaxed">
                   Candidates must qualify standards mandated by the AICTE ATAL academy.
                 </p>
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
+              <div className="flex items-center gap-2 text-xs font-normal text-slate-600">
                 <CheckSquare className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Min 80% Attendance</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
+              <div className="flex items-center gap-2 text-xs font-normal text-slate-600">
                 <CheckSquare className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Min 70% Test Score</span>
               </div>
@@ -98,29 +103,29 @@ export const RegistrationSection: React.FC = () => {
                 <CalendarRange className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <span className="block text-[11px] font-black text-slate-400 tracking-widest uppercase">
+                <span className="block text-[11px]  font-black text-slate-400 tracking-widest uppercase">
                   Important Dates
                 </span>
-                <h3 className="text-lg font-black text-slate-900 tracking-tight">
+                <h3 className="text-lg font-black font-semibold text-slate-900 tracking-tight">
                   Timeline Deadlines
                 </h3>
-                <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                <p className="text-xs text-slate-600 font-normal leading-relaxed">
                   Ensure you complete registration before the portals lock.
                 </p>
               </div>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100 space-y-1.5 text-xs font-bold text-slate-700">
+            <div className="mt-6 pt-4 border-t border-slate-100 space-y-1.5 text-xs font-normal text-slate-600">
               <div className="flex justify-between">
                 <span>Opens:</span>
-                <span className="text-slate-900">Aug 01, 2026</span>
+                <span className="text-slate-900 font-medium">Aug 01, 2026</span>
               </div>
               <div className="flex justify-between border-t border-slate-50 pt-1.5">
                 <span>Closes:</span>
-                <span className="text-amber-700">Oct 27, 2026</span>
+                <span className="text-amber-700 font-medium">Oct 27, 2026</span>
               </div>
               <div className="flex justify-between border-t border-slate-50 pt-1.5">
                 <span>Workshop:</span>
-                <span className="text-primary">Oct 29–31, 2026</span>
+                <span className="text-primary font-medium">Oct 29–31, 2026</span>
               </div>
             </div>
           </div>
@@ -135,11 +140,11 @@ export const RegistrationSection: React.FC = () => {
                 <span className="block text-[11px] font-black text-slate-400 tracking-widest uppercase">
                   Sign Up Actions
                 </span>
-                <h3 className="text-lg font-black text-slate-900 tracking-tight">
+                <h3 className="text-lg font-black font-semibold text-slate-900 tracking-tight">
                   Apply on ATAL Portal
                 </h3>
-                <p className="text-xs text-slate-500 font-semibold leading-relaxed">
-                  Apply using Workshop ID <strong>2565537652</strong> on the official portal.
+                <p className="text-xs text-slate-600 font-normal leading-relaxed">
+                  Apply using Workshop ID 2565537652 on the official portal.
                 </p>
               </div>
             </div>

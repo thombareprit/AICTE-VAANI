@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, FileText, Globe, GraduationCap, ExternalLink, BookOpen, Award } from 'lucide-react';
+import { Check, FileText, Globe, GraduationCap, ExternalLink, BookOpen, Award } from 'lucide-react';
 import sipnaGate from '../assets/sipna-gate.png';
 
 export const AboutSection: React.FC = () => {
@@ -17,7 +17,7 @@ export const AboutSection: React.FC = () => {
   return (
     <section 
       id="about" 
-      className="scroll-mt-24 relative py-20 px-4 bg-[#E5DFD0] text-slate-900 overflow-hidden"
+      className="scroll-mt-24 relative py-12 md:py-16 px-4 bg-[#E5DFD0] text-slate-900 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto space-y-10 relative z-10">
         
@@ -58,8 +58,8 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-sm text-slate-700 font-medium leading-relaxed pt-2">
-                  <strong>AICTE-VAANI</strong> (Vibrant Advocacy for Advancement and Nurturing of Indian Languages) is a financial scheme to promote technical education across 22 regional Indian languages. Under this landmark initiative, SCOET organizes this national technical workshop delivered in **Hindi medium** to break language barriers in frontier technologies for <strong>Viksit Bharat 2047</strong>.
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
+                  AICTE-VAANI (Vibrant Advocacy for Advancement and Nurturing of Indian Languages) is a financial scheme to promote technical education across 22 regional Indian languages. Under this landmark initiative, SCOET organizes this national technical workshop delivered in Hindi medium to break language barriers in frontier technologies for Viksit Bharat 2047.
                 </p>
               </div>
 
@@ -67,25 +67,23 @@ export const AboutSection: React.FC = () => {
               <div className="space-y-2 border-t border-slate-900/10 pt-4">
                 <h3 className="text-sm font-black text-[#0F172A] flex items-center gap-2">
                   <BookOpen className="w-4.5 h-4.5 text-blue-700" />
-                  Department of Computer Science & Engineering (estd. 1999)
+                  Department of Computer Science and Engineering (estd. 1999)
                 </h3>
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold">
-                  The CSE Department has <strong>35 qualified faculty members</strong> and offers comprehensive academic programs including B.Tech, M.Tech, and an SGBAU-approved Ph.D. Research Center to foster next-generation engineering leadership.
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
+                  The CSE Department has 35 qualified faculty members and offers comprehensive academic programs including B.Tech, M.Tech, and an SGBAU-approved Ph.D. Research Center to foster next-generation engineering leadership.
                 </p>
               </div>
 
               {/* Core Objectives */}
               <div className="space-y-4 border-t border-slate-900/10 pt-4">
                 <h4 className="text-xs font-black uppercase tracking-widest text-slate-500">
-                  Workshop Objectives (8 Core Points)
+                  Workshop Objectives
                 </h4>
                 
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {workshopObjectives.map((obj, index) => (
-                    <li key={index} className="flex gap-2 text-xs text-slate-800 leading-relaxed font-semibold">
-                      <span className="w-4.5 h-4.5 rounded-full bg-amber-500/15 border border-amber-600/30 flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-3 h-3 text-amber-700" />
-                      </span>
+                    <li key={index} className="flex items-start gap-2 text-xs text-slate-800 leading-relaxed font-semibold">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span>{obj}</span>
                     </li>
                   ))}
@@ -141,8 +139,8 @@ export const AboutSection: React.FC = () => {
                 <Award className="w-4.5 h-4.5 text-blue-700" />
                 Institutional Details (Sipna SCOET)
               </h4>
-              <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-semibold">
-                Sipna College of Engineering & Technology (SCOET), Amravati is an <strong>Autonomous institute affiliated with Sant Gadge Baba Amravati University (SGBAU)</strong>. Established in 1999 by Sipna Shikshan Prasarak Mandal (SSPM, estd. 1995), it is accredited with <strong>Grade 'A+' by NAAC</strong>, and is ISO 9001:2015 & ISO 14001:2015 certified. The college holds <strong>NBA accreditation for UG programs in 5 departments</strong>: Computer Science & Engineering, Electronics & Telecommunication, Information Technology, Civil Engineering, and Mechanical Engineering. It is a Mentee Institute of COEP Technological University, Pune under the AICTE Margadarshan Scheme, and the sole member of the Confederation of Indian Industry (CII) in the university.
+              <p className="text-[11px] sm:text-s font-semibold text-slate-700 leading-relaxed text-justify">
+                Sipna College of Engineering & Technology (SCOET), Amravati is an Autonomous institute affiliated with Sant Gadge Baba Amravati University (SGBAU). Established in 1999 by Sipna Shikshan Prasarak Mandal (SSPM, estd. 1995), it is accredited with Grade 'A+' by NAAC, and is ISO 9001:2015 & ISO 14001:2015 certified. The college holds NBA accreditation for UG programs in 6 departments: Computer Science and Engineering, Electronics & Telecommunication, Information Technology, Civil Engineering, Mechanical Engineering and Artificial Intelligence and Data Science. It is a Mentee Institute of COEP Technological University, Pune under the AICTE Margadarshan Scheme, and the sole member of the Confederation of Indian Industry (CII) in the university.
               </p>
             </div>
 

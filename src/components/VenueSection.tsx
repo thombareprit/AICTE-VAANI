@@ -1,27 +1,21 @@
 import React from 'react';
-import { MapPin, Navigation, Landmark, Compass, Award, ExternalLink } from 'lucide-react';
+import { MapPin, Navigation, Landmark, Compass, ExternalLink } from 'lucide-react';
 import sipnaCampus from '../assets/sipna-campus.jpg';
 
 export const VenueSection: React.FC = () => {
   return (
-    <section id="venue" className="scroll-mt-24 py-20 bg-slate-50/50 border-b border-slate-200/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="venue" className="scroll-mt-24 py-12 md:py-16 px-4 bg-slate-50/50 border-b border-slate-200/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Section Header */}
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-crypto text-xs font-bold uppercase tracking-wider">
-            Campus & Venue
-          </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
-            Location & Campus Infrastructure
-          </h2>
-          <p className="max-w-3xl mx-auto text-slate-655 text-sm sm:text-base font-semibold">
-            Find the venue details and coordinate coordinates for the SCOET CSE Department.
-          </p>
+        <div className="text-center">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-crypto text-xs font-bold uppercase tracking-wider">
+            Venue
+          </span>
         </div>
 
         {/* 2. Split Card Banner Container */}
-        <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 max-w-6xl mx-auto mb-12">
+        <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 max-w-6xl mx-auto mb-8">
           
           {/* Left Side (7 Columns) - Image Side with Hover Lens & Badge */}
           <div className="lg:col-span-7 relative overflow-hidden group cursor-pointer">
@@ -47,7 +41,7 @@ export const VenueSection: React.FC = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-200/60 pb-3">
                 <Landmark className="w-5 h-5 text-primary" />
-                Department of CSE
+                Department of Computer Science and Engineering
               </h3>
 
               <div className="space-y-3">
@@ -74,35 +68,6 @@ export const VenueSection: React.FC = () => {
                     <p className="text-xs sm:text-sm font-extrabold text-slate-705 mt-0.5">
                       CSE Seminar Hall, Ground Floor, Academic Block B
                     </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Institutional Credentials */}
-              <div className="border-t border-slate-150 pt-4 space-y-2.5">
-                <h4 className="text-xl md:text-2xl font-black text-[#0F172A] tracking-tight mb-4">
-                  Autonomous Institute Accreditation & Academic Distinction
-                </h4>
-                <div className="space-y-1.5 text-xs md:text-sm font-medium text-slate-600 leading-relaxed">
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-amber-650 shrink-0" />
-                    <span>UGC-Autonomous Status</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-amber-650 shrink-0" />
-                    <span>Accredited with Grade A+ by NAAC</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-amber-650 shrink-0" />
-                    <span>Accredited by NBA (UG CSE Program)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-amber-650 shrink-0" />
-                    <span>ISO 9001:2015 Certified</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-amber-650 shrink-0" />
-                    <span>Mentee of COEP Technological University</span>
                   </div>
                 </div>
               </div>

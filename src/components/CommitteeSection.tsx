@@ -27,7 +27,7 @@ export const CommitteeSection: React.FC = () => {
     {
       role: 'Convenor',
       name: 'Dr. Vijaya K. Shandilya',
-      title: 'HOD, Department of Computer Science & Engineering',
+      title: 'HOD, Department of Computer Science and Engineering',
       image: vkShandilya,
     },
   ];
@@ -50,9 +50,9 @@ export const CommitteeSection: React.FC = () => {
   ];
 
   const advisors = [
-    { name: 'Dr. S. S. Dhande', role: 'Professor & Dean Academic', image: sDhande },
-    { name: 'Dr. A. A. Bardekar', role: 'Professor & CSE Research Advisor', image: aBardekar },
-    { name: 'Dr. K. R. Ingole', role: 'Associate Professor, CSE Dept.', image: kIngole },
+    { name: 'Dr. S. S. Dhande', role: 'Professor', image: sDhande },
+    { name: 'Dr. A. A. Bardekar', role: 'Professor', image: aBardekar },
+    { name: 'Dr. K. R. Ingole', role: 'Assistant Professor', image: kIngole },
   ];
 
   // Framer Motion variants for parent card hover ring trigger
@@ -67,8 +67,8 @@ export const CommitteeSection: React.FC = () => {
   };
 
   return (
-    <section id="committee" className="scroll-mt-24 py-20 bg-canvas border-b border-slate-200/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="committee" className="scroll-mt-24 py-12 md:py-16 bg-canvas border-b border-slate-200/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Section Header */}
         <div className="text-center space-y-3">
@@ -76,18 +76,15 @@ export const CommitteeSection: React.FC = () => {
             Organizers
           </div>
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
-            Committee & Administration
+            Administration
           </h2>
-          <p className="max-w-3xl mx-auto text-slate-655 text-sm sm:text-base font-semibold">
-            The leadership, coordinators, and advisors executing the AICTE-VAANI workshop goals at SCOET.
-          </p>
         </div>
 
         {/* 1. Row 1: Leadership (3 Centered Cards) with 130px circular avatar frames */}
         <div className="space-y-6">
-          <h3 className="text-sm font-black text-slate-400 tracking-widest uppercase text-center">
+          {/* <h3 className="text-sm font-black text-slate-400 tracking-widest uppercase text-center">
             Organizing Leadership
-          </h3>
+          </h3> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-stretch">
             {leadership.map((leader) => (
               <div
@@ -208,9 +205,9 @@ export const CommitteeSection: React.FC = () => {
         </div>
 
         {/* 1. Bottom Badge: EXACTLY ONE "SCOET CSE Academic Counsel" badge centered at the bottom of the section */}
-        <div className="w-full max-w-md mx-auto text-center mt-12 py-3 px-6 bg-slate-105 rounded-full border border-slate-200 text-xs font-bold text-slate-600 shadow-inner select-none">
+        {/* <div className="w-full max-w-md mx-auto text-center mt-12 py-3 px-6 bg-slate-105 rounded-full border border-slate-200 text-xs font-bold text-slate-600 shadow-inner select-none">
           SCOET CSE Academic Counsel
-        </div>
+        </div> */}
 
       </div>
     </section>
