@@ -141,7 +141,7 @@ export const CommitteeSection: React.FC = () => {
                     {coord.role}
                   </span>
                   <h4 className="text-base font-extrabold text-slate-955 transition-colors duration-200">{coord.name}</h4>
-                  <p className="text-xs text-slate-400 font-bold">Dept. of CSE, SCOET</p>
+                  {/* <p className="text-xs text-slate-400 font-bold">Dept. of CSE, SCOET</p> */}
                 </div>
 
                 {/* Contacts */}
@@ -197,7 +197,7 @@ export const CommitteeSection: React.FC = () => {
                   <p className="text-xs text-slate-500 font-semibold leading-normal">
                     {advisor.role}
                   </p>
-                  <p className="text-[10px] text-slate-400 font-bold">SCOET, Amravati</p>
+                  {/* <p className="text-[10px] text-slate-400 font-bold">SCOET, Amravati</p> */}
                 </div>
               </motion.div>
             ))}

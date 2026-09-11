@@ -24,7 +24,7 @@ export const RegistrationSection: React.FC = () => {
   return (
     <section id="registration" className="scroll-mt-24 py-12 md:py-16 px-4 bg-canvas border-b border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        
+
         {/* Section Header */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold uppercase tracking-wider">
@@ -40,7 +40,7 @@ export const RegistrationSection: React.FC = () => {
 
         {/* Executive 4-Card Grid (Intake Caption Removed) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          
+
           {/* Card 1: Fees */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-premium flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300">
             <div className="space-y-4">
@@ -121,7 +121,7 @@ export const RegistrationSection: React.FC = () => {
               </div>
               <div className="flex justify-between border-t border-slate-50 pt-1.5">
                 <span>Closes:</span>
-                <span className="text-amber-700 font-medium">Oct 27, 2026</span>
+                <span className="text-amber-700 font-medium">Oct 20, 2026</span>
               </div>
               <div className="flex justify-between border-t border-slate-50 pt-1.5">
                 <span>Workshop:</span>

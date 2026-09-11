@@ -21,7 +21,7 @@ export const SpeakersSection: React.FC = () => {
   const speakers: Speaker[] = [
     {
       name: 'Dr. Kumar Gautam',
-      tag: 'Keynote Speaker • Quantum Computing',
+      tag: 'Quantum Computing',
       role: 'Adjunct Faculty, NIT Delhi & Research Consultant',
       affiliation: 'RMOC (AIM-NITI Aayog) | Postdoc GIST South Korea',
       image: kumarGautamImg,
@@ -95,7 +95,7 @@ export const SpeakersSection: React.FC = () => {
               className="w-full h-full object-cover object-top filter transition-transform duration-500 group-hover:scale-105"
             />
             {/* Domain Badge */}
-            <span className="bg-slate-900/85 backdrop-blur-md text-amber-300 border border-white/20 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full absolute top-2.5 left-2.5 z-10">
+            <span className="bg-slate-900/85 backdrop-blur-md text-amber-300 border border-white/20 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full absolute bottom-2.5 left-2.5 z-10">
               {speaker.tag}
             </span>
           </div>
@@ -112,10 +112,10 @@ export const SpeakersSection: React.FC = () => {
         </div>
 
         {/* Affiliation / Credentials */}
-        <div className="relative z-10 mt-4 border-t border-slate-100 pt-2 flex gap-1.5 text-xs font-semibold text-slate-500 leading-relaxed">
+        {/* <div className="relative z-10 mt-4 border-t border-slate-100 pt-2 flex gap-1.5 text-xs font-semibold text-slate-500 leading-relaxed">
           <GraduationCap className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
           <span>{speaker.affiliation}</span>
-        </div>
+        </div> */}
       </div>
     );
   };
@@ -144,7 +144,7 @@ export const SpeakersSection: React.FC = () => {
         </div>
 
         {/* Balanced 3 + 2 Grid Layout using FlexWrap for equal geometry sizing */}
-        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto px-4">
+        <div className="flex justify-center gap-6 ">
           {speakers.map((speaker, idx) => (
             <div key={speaker.name} className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] max-w-[290px] flex">
               {renderCard(speaker, idx)}

@@ -135,17 +135,17 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             {/* Additional Fact Card (Official Institute Profile) */}
             <div className="bg-white/50 border border-white/80 p-6 rounded-2xl shadow-md space-y-3">
-              <h4 className="text-xs font-black uppercase tracking-wider text-[#0F172A] flex items-center gap-2">
+              <h4 className="text-base md:text-lg font-black text-[#0F172A] flex items-center gap-2 border-b border-slate-900/10 pb-3">
                 <Award className="w-4.5 h-4.5 text-blue-700" />
-                Institutional Details (Sipna SCOET)
+                Institutional Details (Sipna College of Engineering & Technology)
               </h4>
-              <p className="text-[11px] sm:text-s font-semibold text-slate-700 leading-relaxed text-justify">
+              <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
                 Sipna College of Engineering & Technology (SCOET), Amravati is an Autonomous institute affiliated with Sant Gadge Baba Amravati University (SGBAU). Established in 1999 by Sipna Shikshan Prasarak Mandal (SSPM, estd. 1995), it is accredited with Grade 'A+' by NAAC, and is ISO 9001:2015 & ISO 14001:2015 certified. The college holds NBA accreditation for UG programs in 6 departments: Computer Science and Engineering, Electronics & Telecommunication, Information Technology, Civil Engineering, Mechanical Engineering and Artificial Intelligence and Data Science. It is a Mentee Institute of COEP Technological University, Pune under the AICTE Margadarshan Scheme, and the sole member of the Confederation of Indian Industry (CII) in the university.
               </p>
             </div>
 
             {/* Bottom Sub-Panel: Gate Photo Card */}
-            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(15,23,42,0.1)] border border-white/60 group cursor-pointer aspect-[3/4] w-full flex flex-col justify-end flex-1">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(15,23,42,0.1)] border border-white/60 group cursor-pointer aspect-[1/1] w-full flex flex-col justify-end flex-1">
               <img
                 src={sipnaGate}
                 alt="Sipna Gate Entrance"
