@@ -54,7 +54,10 @@ const App: React.FC = () => {
         </motion.div>
       </main>
 
-      {/* Deep Slate Navy Footer */}
+      {/*
+        Website Designed & Developed by:
+        Prit Thombare (thombarepritnilesh@gmail.com)
+      */}
       <Footer />
     </div>
   );

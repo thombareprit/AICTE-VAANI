@@ -11,6 +11,10 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-navy text-slate-300 pt-16 pb-8 border-t border-slate-800">
+      {/*
+        Website Designed & Developed by:
+        Prit Thombare (thombarepritnilesh@gmail.com)
+      */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Grid */}
@@ -107,6 +111,17 @@ export const Footer: React.FC = () => {
             </button>
           </div>
         </div>
+
+        {/* Developer Attribution */}
+        <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-2 select-none">
+          Designed &amp; Developed by{' '}
+          <a
+            href="thombareprit.dev"
+            className="hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+          >
+            Prit Thombare
+          </a>
+        </p>
 
       </div>
     </footer>

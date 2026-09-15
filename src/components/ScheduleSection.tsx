@@ -329,7 +329,7 @@ export const ScheduleSection: React.FC = () => {
   const scheduleData: Record<1 | 2 | 3, TimelineItem[]> = {
     1: [
       {
-        time: '09:30 AM – 11:00 AM',
+        time: '11:00 AM – 12:00 PM',
         title: 'Registration & Inauguration Ceremony',
         type: 'event',
         domain: 'general',
@@ -338,7 +338,7 @@ export const ScheduleSection: React.FC = () => {
         details: 'Welcome address by SSPM leadership, Patrons, and Convenor. Highlighting the VAANI scheme regional roadmap.',
       },
       {
-        time: '11:00 AM – 12:00 PM',
+        time: '12:00 PM – 01:00 PM',
         title: 'Session I: Introduction to Quantum Technologies and Viksit Bharat',
         speaker: 'Dr. Kumar Gautam',
         role: 'Adjunct Faculty, NIT Delhi & RMoC AIM-NITI Aayog',
@@ -349,7 +349,7 @@ export const ScheduleSection: React.FC = () => {
         details: 'Overview of quantum mechanics, quantum initiatives, and role of regional language instruction for Viksit Bharat 2047.',
       },
       {
-        time: '12:00 PM – 01:00 PM',
+        time: '01:00 PM – 02:00 PM',
         title: 'Session II: Fundamentals of Quantum Computing',
         speaker: 'Dr. Kumar Gautam',
         role: 'Adjunct Faculty, NIT Delhi & RMoC AIM-NITI Aayog',
@@ -360,7 +360,7 @@ export const ScheduleSection: React.FC = () => {
         details: 'Understanding superposition, entanglement, qubits, Bloch sphere representation, and quantum logic gates.',
       },
       {
-        time: '01:00 PM – 02:00 PM',
+        time: '02:00 PM – 03:00 PM',
         title: 'Networking Lunch Break',
         type: 'break',
         domain: 'break',
@@ -368,7 +368,7 @@ export const ScheduleSection: React.FC = () => {
         tagText: 'Lunch Break',
       },
       {
-        time: '02:00 PM – 03:00 PM',
+        time: '03:00 PM – 04:00 PM',
         title: 'Session III: Quantum Communication',
         speaker: 'Dr. Neha Gupta',
         role: 'Dy Director, School of Computer Science & IT, Indore',
@@ -379,7 +379,7 @@ export const ScheduleSection: React.FC = () => {
         details: 'Introduction to secure channels, quantum teleportation, and quantum noise fundamentals.',
       },
       {
-        time: '03:00 PM – 03:15 PM',
+        time: '04:00 PM – 04:15 PM',
         title: 'Evening High Tea',
         type: 'break',
         domain: 'break',
@@ -387,7 +387,7 @@ export const ScheduleSection: React.FC = () => {
         tagText: 'High Tea Break',
       },
       {
-        time: '03:15 PM – 04:15 PM',
+        time: '04:15 PM – 05:15 PM',
         title: 'Session IV: Quantum Algorithms and Applications',
         speaker: 'Dr. Neha Gupta',
         role: 'Dy Director, School of Computer Science & IT, Indore',
