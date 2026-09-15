@@ -50,7 +50,7 @@ export const SpeakersSection: React.FC = () => {
     {
       name: 'Dr. Tapan Kumar Jain',
       tag: 'Quantum Cryptography & QKD',
-      role: 'Assistant Professor(ECE), Grade-1',
+      role: 'Assistant Professor, Grade-1 (ECE)',
       affiliation: 'IIIT Nagpur',
       image: tapanKumarJainImg,
     },
