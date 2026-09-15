@@ -162,7 +162,7 @@ export const HeroSection: React.FC = () => {
                   AICTE-VAANI SPONSORED
                 </span>
                 <span className="text-xs md:text-sm font-extrabold text-slate-800 tracking-wide block uppercase mt-0.5">
-                  3-Day National Technical Workshop (Hindi Medium)
+                  3-Days National Technical Workshop (Hindi Medium)
                 </span>
                 <span className="text-xs md:text-sm font-normal text-200 tracking-wide block uppercase mt-0.5">
                   ID: 2565537652

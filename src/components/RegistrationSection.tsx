@@ -8,10 +8,10 @@ export const RegistrationSection: React.FC = () => {
   const downloadBrochure = () => {
     setDownloading(true);
 
-    const pdfUrl = './AICTE-Workshop-Brochure.pdf';
+    const pdfUrl = './AICTE-VAANI-Workshop-Brochure.pdf';
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'AICTE_VAANI_Quantum_Technologies_Workshop_Brochure.pdf';
+    link.download = 'AICTE-VAANI-Workshop-Brochure.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -27,7 +27,7 @@ export const RegistrationSection: React.FC = () => {
 
         {/* Section Header */}
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-ss bg-blue-50 border border-blue-200 text-primary text-xs font-bold uppercase tracking-wider">
             Join the Workshop
           </div>
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
@@ -103,10 +103,10 @@ export const RegistrationSection: React.FC = () => {
                 <CalendarRange className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <span className="block text-[11px]  font-black text-slate-400 tracking-widest uppercase">
+                <span className="block text-[11px] font-black text-slate-400 tracking-widest uppercase">
                   Important Dates
                 </span>
-                <h3 className="text-lg font-black font-semibold text-slate-900 tracking-tight">
+                <h3 className="text-lg font-black text-slate-900 tracking-tight">
                   Timeline Deadlines
                 </h3>
                 <p className="text-xs text-slate-600 font-normal leading-relaxed">

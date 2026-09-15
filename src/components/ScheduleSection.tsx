@@ -16,10 +16,12 @@ interface TimelineItem {
 
 interface DayTimelineProps {
   items: TimelineItem[];
+  isActive?: boolean;
 }
 
 const DayTimeline: React.FC<DayTimelineProps> = ({
   items,
+  isActive = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const firstNodeRef = useRef<HTMLDivElement>(null);
@@ -27,7 +29,7 @@ const DayTimeline: React.FC<DayTimelineProps> = ({
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start center', 'end center'],
+    offset: ['start center', 'end 70%'],
   });
 
   const scaleY = useSpring(scrollYProgress, {
@@ -60,12 +62,12 @@ const DayTimeline: React.FC<DayTimelineProps> = ({
       window.removeEventListener('resize', updateBounds);
       clearTimeout(timer);
     };
-  }, [items]);
+  }, [items, isActive]);
 
   // Bind vertical Y-scroll progress directly to index thresholds
   useEffect(() => {
     return scaleY.on('change', (latest: number) => {
-      const idx = latest * (items.length - 0.5);
+      const idx = latest >= 0.9 ? items.length - 1 : latest * (items.length - 0.5);
       setActiveIndex(idx);
     });
   }, [items, scaleY]);
@@ -126,7 +128,7 @@ const DayTimeline: React.FC<DayTimelineProps> = ({
       <div className="space-y-12 overflow-visible">
         {items.map((item, index) => {
           const isEven = index % 2 === 0;
-          const isLunch = item.tagText === 'Lunch Break';
+          const isLunch = item.tagText === 'Lunch Break' || item.tagText.includes('Lunch');
           const isTea = item.tagText.includes('Tea') || item.tagText.includes('Refreshment');
           
           const isNodeActive = activeIndex >= index;
@@ -378,7 +380,7 @@ export const ScheduleSection: React.FC = () => {
       },
       {
         time: '03:00 PM – 03:15 PM',
-        title: 'Evening High Tea & Refreshments',
+        title: 'Evening High Tea',
         type: 'break',
         domain: 'break',
         color: '#D97706',
@@ -440,7 +442,7 @@ export const ScheduleSection: React.FC = () => {
       },
       {
         time: '03:00 PM – 03:15 PM',
-        title: 'Evening High Tea & Refreshments',
+        title: 'Evening High Tea',
         type: 'break',
         domain: 'break',
         color: '#D97706',
@@ -482,13 +484,32 @@ export const ScheduleSection: React.FC = () => {
         details: 'Protocols such as BB84, decoy state distribution, entanglement-based systems, and physical layer security setup.',
       },
       {
-        time: '01:00 PM',
-        title: 'Valedictory Session, Certificate Distribution & Concluding Lunch',
+        time: '01:00 PM – 02:00 PM',
+        title: 'Networking Lunch Break',
+        type: 'break',
+        domain: 'break',
+        color: '#D97706',
+        tagText: 'Lunch Break',
+      },
+      {
+        time: '02:00 PM – 03:00 PM',
+        title: 'Session XI: Quantum Technologies, Collaboration, and Future Direction',
+        speaker: 'Prof. H. S. Gulhane & Dr. Seema B. Rathod',
+        role: 'Sipna College of Engineering & Technology, Amravati',
+        type: 'session',
+        domain: 'quantum',
+        color: '#1D4ED8',
+        tagText: 'Session XI',
+        details: 'Strategic perspectives on inter-institutional collaboration, national quantum missions, and future pedagogical directions under AICTE-VAANI.',
+      },
+      {
+        time: '03:00 PM – 04:00 PM',
+        title: 'Valedictory Session & Certificate Distribution',
         type: 'event',
         domain: 'general',
         color: '#D97706',
         tagText: 'Valedictory',
-        details: 'Feedback assembly, certificates distribution, and vote of thanks concluding the 3-day technical schedule.',
+        details: 'Concluding remarks, assessment verification, and awarding of ATAL scheme certificates to qualified participants.',
       },
     ],
   };
@@ -551,16 +572,19 @@ export const ScheduleSection: React.FC = () => {
             {/* Day 1 */}
             <DayTimeline
               items={scheduleData[1]}
+              isActive={activeDay === 1}
             />
 
             {/* Day 2 */}
             <DayTimeline
               items={scheduleData[2]}
+              isActive={activeDay === 2}
             />
 
             {/* Day 3 */}
             <DayTimeline
               items={scheduleData[3]}
+              isActive={activeDay === 3}
             />
           </motion.div>
         </div>

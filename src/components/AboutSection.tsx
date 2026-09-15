@@ -65,7 +65,7 @@ export const AboutSection: React.FC = () => {
 
               {/* Department of CSE */}
               <div className="space-y-2 border-t border-slate-900/10 pt-4">
-                <h3 className="text-sm font-black text-[#0F172A] flex items-center gap-2">
+                <h3 className="text-base md:text-lg font-black text-[#0F172A] flex items-center gap-2 border-b border-slate-900/10 pb-3">
                   <BookOpen className="w-4.5 h-4.5 text-blue-700" />
                   Department of Computer Science and Engineering (estd. 1999)
                 </h3>
@@ -80,9 +80,9 @@ export const AboutSection: React.FC = () => {
                   Workshop Objectives
                 </h4>
                 
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <ul className="grid grid-cols-1 gap-3">
                   {workshopObjectives.map((obj, index) => (
-                    <li key={index} className="flex items-start gap-2 text-xs text-slate-800 leading-relaxed font-semibold">
+                    <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-slate-600 leading-relaxed font-semibold">
                       <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span>{obj}</span>
                     </li>
@@ -93,7 +93,7 @@ export const AboutSection: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="pt-6 border-t border-slate-900/10 space-y-3">
-              <p className="text-[11px] font-bold tracking-wide uppercase text-slate-500">
+              <p className="text-xs font-black uppercase tracking-widest text-slate-500">
                 Explore Official AICTE Schemes & Portals:
               </p>
               
@@ -140,7 +140,7 @@ export const AboutSection: React.FC = () => {
                 Institutional Details (Sipna College of Engineering & Technology)
               </h4>
               <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
-                Sipna College of Engineering & Technology (SCOET), Amravati is an Autonomous institute affiliated with Sant Gadge Baba Amravati University (SGBAU). Established in 1999 by Sipna Shikshan Prasarak Mandal (SSPM, estd. 1995), it is accredited with Grade 'A+' by NAAC, and is ISO 9001:2015 & ISO 14001:2015 certified. The college holds NBA accreditation for UG programs in 6 departments: Computer Science and Engineering, Electronics & Telecommunication, Information Technology, Civil Engineering, Mechanical Engineering and Artificial Intelligence and Data Science. It is a Mentee Institute of COEP Technological University, Pune under the AICTE Margadarshan Scheme, and the sole member of the Confederation of Indian Industry (CII) in the university.
+                Sipna College of Engineering & Technology (SCOET), Amravati is an Autonomous institute affiliated with Sant Gadge Baba Amravati University (SGBAU). Established in 1999 under Sipna Shikshan Prasarak Mandal (SSPM, estd. 1995), the institute is accredited with Grade 'A+' by NAAC and holds dual ISO 9001:2015 and ISO 14001:2015 certifications. The college offers undergraduate engineering programs across 6 distinct departments: Computer Science and Engineering, Electronics & Telecommunication Engineering, Information Technology, Civil Engineering, Mechanical Engineering, and Artificial Intelligence(AI) and Data Science. Among these, 5 core departments Computer Science and Engineering, Electronics & Telecommunication Engineering, Information Technology, Civil Engineering, and Mechanical Engineering hold prestigious accreditation from the National Board of Accreditation (NBA). SCOET is an esteemed Mentee Institute of COEP Technological University, Pune under the AICTE Margadarshan Scheme and stands as the sole institutional member of the Confederation of Indian Industry (CII) within the university.
               </p>
             </div>
 

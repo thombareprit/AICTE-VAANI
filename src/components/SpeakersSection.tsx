@@ -22,8 +22,8 @@ export const SpeakersSection: React.FC = () => {
     {
       name: 'Dr. Kumar Gautam',
       tag: 'Quantum Computing',
-      role: 'Adjunct Faculty, NIT Delhi & Research Consultant',
-      affiliation: 'RMOC (AIM-NITI Aayog) | Postdoc GIST South Korea',
+      role: 'Adjunct Faculty & Research Consultant',
+      affiliation: 'NIT Delhi',
       image: kumarGautamImg,
     },
     {
@@ -36,7 +36,7 @@ export const SpeakersSection: React.FC = () => {
     {
       name: 'Dr. Satish Salunkhe',
       tag: 'AI & Quantum ML',
-      role: 'HOD & Professor, Dept. of Computer Engineering',
+      role: "HOD & Professor, Dept. of Computer Engineering",
       affiliation: "Vidyavardhini's College of Engg. & Tech. (VCET), Palghar",
       image: satishSalunkeImg,
     },
@@ -50,8 +50,8 @@ export const SpeakersSection: React.FC = () => {
     {
       name: 'Dr. Tapan Kumar Jain',
       tag: 'Quantum Cryptography & QKD',
-      role: 'Associate Professor(ECE), IIIT Nagpur',
-      affiliation: 'COEP | RGPV, Bhopal',
+      role: 'Assistant Professor(ECE), Grade-1',
+      affiliation: 'IIIT Nagpur',
       image: tapanKumarJainImg,
     },
   ];
@@ -112,10 +112,10 @@ export const SpeakersSection: React.FC = () => {
         </div>
 
         {/* Affiliation / Credentials */}
-        {/* <div className="relative z-10 mt-4 border-t border-slate-100 pt-2 flex gap-1.5 text-xs font-semibold text-slate-500 leading-relaxed">
+        <div className="relative z-10 mt-4 border-t border-slate-100 pt-2 flex gap-1.5 text-xs font-semibold text-slate-500 leading-relaxed">
           <GraduationCap className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
           <span>{speaker.affiliation}</span>
-        </div> */}
+        </div>
       </div>
     );
   };
@@ -137,9 +137,9 @@ export const SpeakersSection: React.FC = () => {
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
               Distinguished Speakers
             </h2>
-            <p className="max-w-2xl text-slate-600 text-sm sm:text-base font-semibold mt-1">
+            {/* <p className="max-w-2xl text-slate-600 text-sm sm:text-base font-semibold mt-1">
               National integration through technical curriculum delivery in native languages.
-            </p>
+            </p> */}
           </div>
         </div>
 

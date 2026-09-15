@@ -52,7 +52,7 @@ export const CommitteeSection: React.FC = () => {
   const advisors = [
     { name: 'Dr. S. S. Dhande', role: 'Professor', image: sDhande },
     { name: 'Dr. A. A. Bardekar', role: 'Professor', image: aBardekar },
-    { name: 'Dr. K. R. Ingole', role: 'Assistant Professor', image: kIngole },
+    { name: 'Dr. K. R. Ingole', role: 'Associate Professor', image: kIngole },
   ];
 
   // Framer Motion variants for parent card hover ring trigger
