@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
 import sipnaLogo from '../assets/sipna-logo.png';
 import naacLogo from '../assets/naac-logo.png';
 import nbaLogo from '../assets/nba-logo.svg';
@@ -7,7 +7,8 @@ import aicteLogo from '../assets/aicte-logo.png';
 import sipnaBuilding from '../assets/sipna-building.svg';
 
 export const HeroSection: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // 3D physics tilt motion values with dampening springs
@@ -22,16 +23,10 @@ export const HeroSection: React.FC = () => {
   const rotateY = useTransform(xSpring, [0, 1], [-2.5, 2.5]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return scrollY.on('change', (latest) => {
+      setIsScrolledPastHero(latest > 110);
+    });
+  }, [scrollY]);
 
   const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -100,48 +95,59 @@ export const HeroSection: React.FC = () => {
         <div className="w-full max-w-5xl mx-auto text-center pt-8 pb-6 flex flex-col items-center justify-center border-b border-slate-200/60 mb-8">
           
           {/* Logo container preventing layout shifting when morphing logo docks into Navbar */}
-          <div className="h-16 flex items-center justify-center mb-3">
-            {!isScrolled && (
+          <div className="h-16 lg:h-20 flex items-center justify-center mb-3">
+            {/* Desktop: Shared layout continuous flight */}
+            {!isScrolledPastHero && (
+              <motion.div
+                layoutId="sipna-flying-logo"
+                transition={{
+                  type: "spring",
+                  stiffness: 180,
+                  damping: 24,
+                  mass: 0.8
+                }}
+                className="hidden md:flex justify-center"
+              >
+                <img
+                  src={sipnaLogo}
+                  alt="Sipna Logo"
+                  className="h-16 lg:h-20 w-auto object-contain"
+                />
+              </motion.div>
+            )}
+
+            {/* Mobile: In-place soft transition in hero crest */}
+            <div className="flex md:hidden justify-center">
               <motion.img
-                layoutId="sipnaLogoMorph"
                 src={sipnaLogo}
                 alt="Sipna Logo"
-                style={{
-                  transformOrigin: 'center left', 
-                }}
                 className="h-16 w-auto object-contain"
-                transition={{ layout: { type: "spring", stiffness: 350, damping: 35, bounce: 0 } }}
+                animate={{ opacity: isScrolledPastHero ? 0.35 : 1, scale: isScrolledPastHero ? 0.95 : 1 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               />
-            )}
+            </div>
           </div>
 
           <span className="text-[0.75rem] font-bold tracking-[0.2em] text-slate-500 uppercase mb-1">
             SIPNA SHIKSHAN PRASARAK MANDAL'S
           </span>
-          <h1 className="text-2xl md:text-3xl font-black text-[#0F172A] tracking-tight uppercase mb-1">
+          <h1 className="text-lg sm:text-2xl md:text-3xl font-black text-[#0F172A] tracking-tight uppercase leading-snug max-w-2xl mx-auto">
             SIPNA COLLEGE OF ENGINEERING & TECHNOLOGY, AMRAVATI
           </h1>
-          <span className="text-sm font-extrabold text-red-600 tracking-wide mb-2">
+          <span className="text-xs sm:text-sm font-extrabold text-red-600 tracking-wide mt-1">
             ESTD - 1999 | An Autonomous Institute
           </span>
-          <span className="text-base md:text-lg font-black text-[#1D4ED8] tracking-wide uppercase my-1 block">
+          <span className="text-sm sm:text-base md:text-lg font-black text-[#1D4ED8] tracking-wide uppercase leading-tight mt-1 mb-2">
             Department of Computer Science and Engineering
           </span>
-          <div className="flex items-center justify-center gap-3 text-xs font-semibold text-slate-600 flex-wrap">
-            <img
-              src={naacLogo}
-              alt="NAAC Logo"
-              style={{ maxHeight: '58px', width: 'auto', objectFit: 'contain' }}
-            />
-            <span>
-              (Affiliated to Sant Gadge Baba Amravati University) | Accredited by NAAC with grade A+ | Accredited by NBA | Accredited by IAO
-            </span>
-            <img
-              src={nbaLogo}
-              alt="NBA Logo"
-              style={{ maxHeight: '48px', width: 'auto', objectFit: 'contain' }}
-            />
+          <div className="flex items-center justify-center gap-4 sm:gap-6 my-2">
+            <img src={naacLogo} alt="NAAC Grade A+" className="h-8 sm:h-10 md:h-12 w-auto object-contain" />
+            <span className="h-6 w-px bg-slate-300" />
+            <img src={nbaLogo} alt="NBA Accredited" className="h-8 sm:h-10 md:h-12 w-auto object-contain" />
           </div>
+          <p className="text-[11px] sm:text-xs font-semibold text-slate-600 text-center max-w-xl mx-auto leading-normal">
+            (Affiliated to Sant Gadge Baba Amravati University) | Accredited by NAAC with grade A+ | Accredited by NBA | Accredited by IAO
+          </p>
         </div>
 
         {/* 1. Hero Grid Structure (2-Column Layout) */}
@@ -171,7 +177,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-3xl md:text-5xl font-extrabold text-[#0F172A] leading-tight mb-4 tracking-tight">
+            <h1 className="text-2xl md:text-5xl font-black md:font-extrabold text-[#0F172A] leading-tight mb-4 tracking-tight">
               Quantum Technologies{' '}
               <span className="text-[#E36414] bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-900">
                 for Viksit Bharat
@@ -184,18 +190,18 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-4 mb-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-2">
               <a
                 href="https://atalacademy.aicte-india.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#E36414] hover:bg-[#AE4C0F] text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition-all hover:scale-[1.02] cursor-pointer inline-flex items-center"
+                className="bg-[#E36414] hover:bg-[#AE4C0F] text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition-all hover:scale-[1.02] cursor-pointer inline-flex items-center justify-center min-h-[44px]"
               >
                 Register for Free
               </a>
               <button
                 onClick={handleScrollToTimeline}
-                className="border-2 border-slate-300 hover:border-slate-800 text-slate-800 font-bold px-7 py-3.5 rounded-xl transition-all hover:bg-slate-100 cursor-pointer"
+                className="border-2 border-slate-300 hover:border-slate-800 text-slate-800 font-bold px-7 py-3.5 rounded-xl transition-all hover:bg-slate-100 cursor-pointer inline-flex items-center justify-center min-h-[44px]"
               >
                 Explore Timeline
               </button>
@@ -204,7 +210,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Right Column: Subtle 3D Tilt + Spotlight Credentials Card (5 Columns) */}
-          <div className="lg:col-span-5 w-full h-full [perspective:1000px]">
+          <div className="lg:col-span-5 w-full max-w-md mx-auto mt-6 lg:mt-0 h-full [perspective:1000px]">
             <motion.div
               style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
               onMouseMove={handleCardMouseMove}

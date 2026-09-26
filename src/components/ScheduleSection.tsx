@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Clock, User, Coffee, Utensils, Tag } from 'lucide-react';
 
 interface TimelineItem {
@@ -17,11 +17,15 @@ interface TimelineItem {
 interface DayTimelineProps {
   items: TimelineItem[];
   isActive?: boolean;
+  nextActionLabel?: string;
+  onNextAction?: () => void;
 }
 
 const DayTimeline: React.FC<DayTimelineProps> = ({
   items,
   isActive = false,
+  nextActionLabel,
+  onNextAction,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const firstNodeRef = useRef<HTMLDivElement>(null);
@@ -101,7 +105,7 @@ const DayTimeline: React.FC<DayTimelineProps> = ({
   };
 
   return (
-    <div ref={containerRef} className="w-[33.333%] px-2 sm:px-6 shrink-0 relative overflow-visible">
+    <div ref={containerRef} className="w-full px-2 sm:px-6 relative overflow-visible">
       
       {/* Central spine line (z-10) running from Node 1 center to Node N center */}
       <div
@@ -312,6 +316,18 @@ const DayTimeline: React.FC<DayTimelineProps> = ({
           );
         })}
       </div>
+
+      {/* Prominent Next Day / Registration Navigation CTA */}
+      {nextActionLabel && onNextAction && (
+        <div className="flex justify-center w-full">
+          <button
+            onClick={onNextAction}
+            className="mt-8 mx-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-300 active:scale-95 cursor-pointer min-h-[44px]"
+          >
+            {nextActionLabel}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -514,7 +530,24 @@ export const ScheduleSection: React.FC = () => {
     ],
   };
 
-  const xOffset = activeDay === 1 ? '0%' : activeDay === 2 ? '-33.333%' : '-66.666%';
+  const scrollToSchedule = () => {
+    containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleNextDay1 = () => {
+    setActiveDay(2);
+    scrollToSchedule();
+  };
+
+  const handleNextDay2 = () => {
+    setActiveDay(3);
+    scrollToSchedule();
+  };
+
+  const handleBackToDay1 = () => {
+    setActiveDay(1);
+    document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     // Outer section wrapper with modern tighter vertical padding
@@ -541,7 +574,7 @@ export const ScheduleSection: React.FC = () => {
               <button
                 key={day.id}
                 onClick={() => setActiveDay(day.id as 1 | 2 | 3)}
-                className="relative flex-1 py-2.5 rounded-full font-bold text-xs transition-all duration-200 focus:outline-none cursor-pointer"
+                className="relative flex-1 py-3 min-h-[44px] rounded-full font-bold text-xs transition-all duration-200 focus:outline-none cursor-pointer flex items-center justify-center"
               >
                 {activeDay === day.id && (
                   <motion.div
@@ -562,31 +595,37 @@ export const ScheduleSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Slider Track Wrapper with vertical padding and overflow-x-hidden, allowing internal overflow-visible */}
-        <div className="w-full overflow-x-hidden py-8 md:py-12">
-          <motion.div
-            animate={{ x: xOffset }}
-            transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-            className="flex w-[300%] overflow-visible"
-          >
-            {/* Day 1 */}
-            <DayTimeline
-              items={scheduleData[1]}
-              isActive={activeDay === 1}
-            />
-
-            {/* Day 2 */}
-            <DayTimeline
-              items={scheduleData[2]}
-              isActive={activeDay === 2}
-            />
-
-            {/* Day 3 */}
-            <DayTimeline
-              items={scheduleData[3]}
-              isActive={activeDay === 3}
-            />
-          </motion.div>
+        {/* Conditional Timeline Container - Dynamically wraps active day height with zero empty gap */}
+        <div className="w-full py-6 md:py-8 h-auto transition-all duration-300">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeDay}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+              className="w-full h-auto"
+            >
+              <DayTimeline
+                items={scheduleData[activeDay]}
+                isActive={true}
+                nextActionLabel={
+                  activeDay === 1
+                    ? "Proceed to Day 2 Schedule →"
+                    : activeDay === 2
+                    ? "Proceed to Day 3 Schedule →"
+                    : "← Back to Day 1 Schedule"
+                }
+                onNextAction={
+                  activeDay === 1
+                    ? handleNextDay1
+                    : activeDay === 2
+                    ? handleNextDay2
+                    : handleBackToDay1
+                }
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
 
       </div>

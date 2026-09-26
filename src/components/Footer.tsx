@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
             <span className="hover:text-slate-300 cursor-default select-none">AICTE VAANI Sponsored</span>
             <button
               onClick={scrollToTop}
-              className="p-2 bg-slate-850 hover:bg-slate-800 text-slate-400 hover:text-white rounded-lg border border-slate-800 transition-colors inline-flex items-center gap-1"
+              className="p-2 min-h-[44px] px-3 bg-slate-850 hover:bg-slate-800 text-slate-400 hover:text-white rounded-lg border border-slate-800 transition-colors inline-flex items-center gap-1 cursor-pointer"
               title="Scroll to Top"
             >
               Scroll Top
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Developer Attribution */}
-        <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-2 select-none">
+        <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-2 text-center select-none">
           Designed &amp; Developed by{' '}
           <a
             href="thombareprit.dev"

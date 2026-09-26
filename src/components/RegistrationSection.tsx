@@ -79,7 +79,7 @@ export const RegistrationSection: React.FC = () => {
                 <h3 className="text-lg font-black font-semibold text-slate-900 tracking-tight">
                   Offline Mode
                 </h3>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed">
+                <p className="text-xs text-slate-500 font-normal leading-relaxed">
                   Candidates must qualify standards mandated by the AICTE ATAL academy.
                 </p>
               </div>
@@ -109,23 +109,23 @@ export const RegistrationSection: React.FC = () => {
                 <h3 className="text-lg font-black text-slate-900 tracking-tight">
                   Timeline Deadlines
                 </h3>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed">
+                <p className="text-xs text-slate-500 font-normal leading-relaxed">
                   Ensure you complete registration before the portals lock.
                 </p>
               </div>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100 space-y-1.5 text-xs font-normal text-slate-600">
-              <div className="flex justify-between">
-                <span>Opens:</span>
-                <span className="text-slate-900 font-medium">Aug 01, 2026</span>
+            <div className="mt-6 pt-4 border-t border-slate-100 space-y-2 text-xs font-semibold text-slate-700">
+              <div className="flex justify-between items-center">
+                <span className="text-slate-500 font-normal">Registration Opens:</span>
+                <span className="text-slate-900 font-bold">August 01, 2026</span>
               </div>
-              <div className="flex justify-between border-t border-slate-50 pt-1.5">
-                <span>Closes:</span>
-                <span className="text-amber-700 font-medium">Oct 20, 2026</span>
+              <div className="flex justify-between items-center border-t border-slate-50 pt-2">
+                <span className="text-slate-500 font-normal">Last Date to Apply:</span>
+                <span className="text-amber-700 font-bold">October 20, 2026</span>
               </div>
-              <div className="flex justify-between border-t border-slate-50 pt-1.5">
-                <span>Workshop:</span>
-                <span className="text-primary font-medium">Oct 29–31, 2026</span>
+              <div className="flex justify-between items-center border-t border-slate-50 pt-2">
+                <span className="text-slate-500 font-normal">Program Duration:</span>
+                <span className="text-[#1D4ED8] font-bold">October 29–31, 2026</span>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ export const RegistrationSection: React.FC = () => {
                 <h3 className="text-lg font-black font-semibold text-slate-900 tracking-tight">
                   Apply on ATAL Portal
                 </h3>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed">
+                <p className="text-xs text-slate-500 font-normal leading-relaxed">
                   Apply using Workshop ID 2565537652 on the official portal.
                 </p>
               </div>
@@ -153,7 +153,7 @@ export const RegistrationSection: React.FC = () => {
                 href="https://atalacademy.aicte-india.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 bg-primary hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all duration-200 cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 min-h-[44px] bg-primary hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all duration-200 cursor-pointer"
               >
                 Register on ATAL Portal
                 <ArrowUpRight className="w-4 h-4" />
@@ -161,7 +161,7 @@ export const RegistrationSection: React.FC = () => {
               <button
                 onClick={downloadBrochure}
                 disabled={downloading}
-                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 border border-slate-200 hover:border-slate-350 hover:bg-slate-50/50 text-slate-700 font-bold text-xs rounded-xl transition-all duration-200 disabled:opacity-50 cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 min-h-[44px] border border-slate-200 hover:border-slate-350 hover:bg-slate-50/50 text-slate-700 font-bold text-xs rounded-xl transition-all duration-200 disabled:opacity-50 cursor-pointer"
               >
                 <Download className={`w-4 h-4 ${downloading ? 'animate-bounce text-primary' : ''}`} />
                 {downloading ? 'Downloading PDF...' : 'Download Brochure'}

@@ -19,8 +19,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-canvas text-navy flex flex-col pt-16">
-      {/* Fixed Header Navbar */}
+    <div className="min-h-screen bg-canvas text-navy flex flex-col">
+      {/* Sticky Header Navbar */}
       <Navbar />
 
       {/* Main Page Sections */}

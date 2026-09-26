@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
         </div>
 
         {/* 2-Column Bento Grid Split 7-5 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch space-y-6 lg:space-y-0">
           
           {/* Tile 1: Luminous Warm Frosted Glass Card */}
           <div className="lg:col-span-7 bg-white/60 backdrop-blur-2xl border border-white/80 rounded-2xl p-6 md:p-8 shadow-[0_20px_40px_rgba(15,23,42,0.06)] flex flex-col justify-between space-y-6 text-slate-900">
@@ -58,7 +58,7 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
+                <p className="text-xs md:text-sm text-slate-700 leading-relaxed text-justify">
                   AICTE-VAANI (Vibrant Advocacy for Advancement and Nurturing of Indian Languages) is a financial scheme to promote technical education across 22 regional Indian languages. Under this landmark initiative, SCOET organizes this national technical workshop delivered in Hindi medium to break language barriers in frontier technologies for Viksit Bharat 2047.
                 </p>
               </div>
@@ -69,7 +69,7 @@ export const AboutSection: React.FC = () => {
                   <BookOpen className="w-4.5 h-4.5 text-blue-700" />
                   Department of Computer Science and Engineering (estd. 1999)
                 </h3>
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
+                <p className="text-xs md:text-sm text-slate-700 leading-relaxed text-justify">
                   The CSE Department has 35 qualified faculty members and offers comprehensive academic programs including B.Tech, M.Tech, and an SGBAU-approved Ph.D. Research Center to foster next-generation engineering leadership.
                 </p>
               </div>
@@ -82,7 +82,7 @@ export const AboutSection: React.FC = () => {
                 
                 <ul className="grid grid-cols-1 gap-3">
                   {workshopObjectives.map((obj, index) => (
-                    <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-slate-600 leading-relaxed font-semibold">
+                    <li key={index} className="flex items-start gap-2 text-xs md:text-sm text-slate-700 leading-relaxed">
                       <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span>{obj}</span>
                     </li>
@@ -102,7 +102,7 @@ export const AboutSection: React.FC = () => {
                   href="https://atalacademy.aicte.gov.in/vaani-documents"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#0F172A] hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-[11px] uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0F172A] hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-[11px] uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer min-h-[44px]"
                 >
                   <FileText className="w-3.5 h-3.5 text-amber-400" />
                   AICTE VAANI Documents
@@ -112,7 +112,7 @@ export const AboutSection: React.FC = () => {
                   href="https://www.aicteducation.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#0F172A] hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-[11px] uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0F172A] hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-[11px] uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer min-h-[44px]"
                 >
                   <Globe className="w-3.5 h-3.5 text-amber-400" />
                   AICTE Official Portal
@@ -122,7 +122,7 @@ export const AboutSection: React.FC = () => {
                   href="https://www.aicte.gov.in/schemes/staff-development-schemes"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#0F172A] hover:bg-amber-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-[11px] uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0F172A] hover:bg-amber-700 text-white font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-[11px] uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer min-h-[44px]"
                 >
                   <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
                   AICTE Staff Development Schemes
@@ -139,7 +139,7 @@ export const AboutSection: React.FC = () => {
                 <Award className="w-4.5 h-4.5 text-blue-700" />
                 Institutional Details (Sipna College of Engineering & Technology)
               </h4>
-              <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-semibold text-justify">
+              <p className="text-xs md:text-sm text-slate-700 leading-relaxed text-justify">
                 Sipna College of Engineering & Technology (SCOET), Amravati is an Autonomous institute affiliated with Sant Gadge Baba Amravati University (SGBAU). Established in 1999 under Sipna Shikshan Prasarak Mandal (SSPM, estd. 1995), the institute is accredited with Grade 'A+' by NAAC and holds dual ISO 9001:2015 and ISO 14001:2015 certifications. The college offers undergraduate engineering programs across 6 distinct departments: Computer Science and Engineering, Electronics & Telecommunication Engineering, Information Technology, Civil Engineering, Mechanical Engineering, and Artificial Intelligence(AI) and Data Science. Among these, 5 core departments Computer Science and Engineering, Electronics & Telecommunication Engineering, Information Technology, Civil Engineering, and Mechanical Engineering hold prestigious accreditation from the National Board of Accreditation (NBA). SCOET is an esteemed Mentee Institute of COEP Technological University, Pune under the AICTE Margadarshan Scheme and stands as the sole institutional member of the Confederation of Indian Industry (CII) within the university.
               </p>
             </div>
